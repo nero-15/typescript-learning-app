@@ -1,0 +1,23 @@
+{
+  "name": "typescript-learning-app",
+  "version": "1.0.0",
+  "description": "typescript 開発用　https://www.typescriptlang.org/ja/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nero-15/typescript-learning-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nero-15/typescript-learning-app/issues"
+  },
+  "homepage": "https://github.com/nero-15/typescript-learning-app#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
