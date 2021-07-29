@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nero-15/typescript-learning-app/issues"
   },
-  "homepage": "https://github.com/nero-15/typescript-learning-app#readme"
+  "homepage": "https://github.com/nero-15/typescript-learning-app#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
