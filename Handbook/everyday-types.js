@@ -14,8 +14,11 @@ function printCoord(pt) {
 }
 printCoord({ x: 3, y: 7 });
 function printName(obj) {
-    console.log("The coordinate's x value is " + obj.first);
-    console.log("The coordinate's y value is " + obj.last);
+    console.log(obj.first.toUpperCase());
+    if (obj.last !== undefined) {
+        // OK
+        console.log(obj.last.toUpperCase());
+    }
 }
 // Both OK
 printName({ first: "Bob" });
