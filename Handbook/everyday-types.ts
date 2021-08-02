@@ -10,10 +10,10 @@ function getFavoriteNumber(): number {
 console.log(getFavoriteNumber());
 
 // The parameter's type annotation is an object type
-function printCoord(pt: { x: number; y: number }) {
-  console.log("The coordinate's x value is " + pt.x);
-  console.log("The coordinate's y value is " + pt.y);
-}
+// function printCoord(pt: { x: number; y: number }) {
+//   console.log("The coordinate's x value is " + pt.x);
+//   console.log("The coordinate's y value is " + pt.y);
+// }
 printCoord({ x: 3, y: 7 });
 
 function printName(obj: { first: string; last?: string }) {
@@ -56,3 +56,17 @@ function welcomePeople(x: string[] | string) {
 }
 
 welcomePeople('toka')
+
+
+type Point = {
+  x: number;
+  y: number;
+};
+
+// Exactly the same as the earlier example
+function printCoord(pt: Point) {
+  console.log("The coordinate's x value is " + pt.x);
+  console.log("The coordinate's y value is " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });

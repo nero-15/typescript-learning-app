@@ -8,10 +8,10 @@ function getFavoriteNumber() {
 }
 console.log(getFavoriteNumber());
 // The parameter's type annotation is an object type
-function printCoord(pt) {
-    console.log("The coordinate's x value is " + pt.x);
-    console.log("The coordinate's y value is " + pt.y);
-}
+// function printCoord(pt: { x: number; y: number }) {
+//   console.log("The coordinate's x value is " + pt.x);
+//   console.log("The coordinate's y value is " + pt.y);
+// }
 printCoord({ x: 3, y: 7 });
 function printName(obj) {
     console.log(obj.first.toUpperCase());
@@ -50,3 +50,9 @@ function welcomePeople(x) {
     }
 }
 welcomePeople('toka');
+// Exactly the same as the earlier example
+function printCoord(pt) {
+    console.log("The coordinate's x value is " + pt.x);
+    console.log("The coordinate's y value is " + pt.y);
+}
+printCoord({ x: 100, y: 100 });
