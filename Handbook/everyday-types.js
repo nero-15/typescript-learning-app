@@ -24,7 +24,14 @@ function printName(obj) {
 printName({ first: "Bob" });
 printName({ first: "Alice", last: "Alisson" });
 function printId(id) {
-    console.log("Your ID is: " + id);
+    if (typeof id === "string") {
+        // In this branch, id is of type 'string'
+        console.log(id.toUpperCase());
+    }
+    else {
+        // Here, id is of type 'number'
+        console.log(id);
+    }
 }
 // OK
 printId(101);
