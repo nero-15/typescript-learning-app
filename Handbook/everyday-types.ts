@@ -58,10 +58,15 @@ function welcomePeople(x: string[] | string) {
 welcomePeople('toka')
 
 
-type Point = {
+// type Point = {
+//   x: number;
+//   y: number;
+// };
+
+interface Point {
   x: number;
   y: number;
-};
+}
 
 // Exactly the same as the earlier example
 function printCoord(pt: Point) {
