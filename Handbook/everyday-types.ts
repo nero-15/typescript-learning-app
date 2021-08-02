@@ -75,3 +75,9 @@ function printCoord(pt: Point) {
 }
 
 printCoord({ x: 100, y: 100 });
+
+function printText(s: string, alignment: "left" | "right" | "center") {
+  console.log(alignment)
+}
+printText("Hello, world", "left");
+//printText("G'day, mate", "centre");

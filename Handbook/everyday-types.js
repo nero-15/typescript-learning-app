@@ -56,3 +56,8 @@ function printCoord(pt) {
     console.log("The coordinate's y value is " + pt.y);
 }
 printCoord({ x: 100, y: 100 });
+function printText(s, alignment) {
+    // ...
+}
+printText("Hello, world", "left");
+//printText("G'day, mate", "centre");
