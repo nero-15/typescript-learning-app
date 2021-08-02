@@ -13,3 +13,10 @@ function printCoord(pt) {
     console.log("The coordinate's y value is " + pt.y);
 }
 printCoord({ x: 3, y: 7 });
+function printName(obj) {
+    console.log("The coordinate's x value is " + obj.first);
+    console.log("The coordinate's y value is " + obj.last);
+}
+// Both OK
+printName({ first: "Bob" });
+printName({ first: "Alice", last: "Alisson" });
