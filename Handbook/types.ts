@@ -4,4 +4,4 @@ function greet(name: string) {
 }
 
 // Would be a runtime error if executed!
-greet(42);
+greet('toka');
