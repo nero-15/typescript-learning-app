@@ -1,0 +1,10 @@
+function greeter(fn) {
+    fn("Hello, World");
+}
+function printToConsole(s) {
+    console.log(s);
+}
+greeter(printToConsole);
+function doSomething(fn) {
+    console.log(fn.description + " returned " + fn(6));
+}
