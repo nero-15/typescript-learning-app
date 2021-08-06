@@ -17,3 +17,10 @@ var s = firstElement(["a", "b", "c"]);
 var n = firstElement([1, 2, 3]);
 console.log(s);
 console.log(n);
+function map(arr, func) {
+    return arr.map(func);
+}
+// Parameter 'n' is of type 'string'
+// 'parsed' is of type 'number[]'
+var parsed = map(["1", "2", "3"], function (n) { return parseInt(n); });
+console.log(parsed);
