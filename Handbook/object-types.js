@@ -6,12 +6,6 @@ var toka = {
     age: 1
 };
 console.log(greet(toka));
-function doSomething(obj) {
-    // We can read from 'obj.prop'.
-    console.log("prop has the value '" + obj.prop + "'.");
-    // But we can't re-assign it.
-    //obj.prop = "hello";
-}
 var writablePerson = {
     name: "Person McPersonface",
     age: 42
@@ -31,3 +25,10 @@ var boxA = { contents: "hello" };
 boxA.contents;
 var boxB = { contents: "world" };
 boxB.contents;
+function doSomething(value) {
+    console.log(value);
+}
+var myArray = ["hello", "world"];
+// either of these work!
+doSomething(myArray);
+doSomething(new Array("hello", "world"));

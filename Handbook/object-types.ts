@@ -17,13 +17,13 @@ interface SomeType {
   readonly prop: string;
 }
 
-function doSomething(obj: SomeType) {
-  // We can read from 'obj.prop'.
-  console.log(`prop has the value '${obj.prop}'.`);
-
-  // But we can't re-assign it.
-  //obj.prop = "hello";
-}
+// function doSomething(obj: SomeType) {
+//   // We can read from 'obj.prop'.
+//   console.log(`prop has the value '${obj.prop}'.`);
+//
+//   // But we can't re-assign it.
+//   //obj.prop = "hello";
+// }
 
 interface Person {
   name: string;
@@ -124,6 +124,16 @@ interface StringBox {
 let boxA: Box<string> = { contents: "hello" };
 boxA.contents;
 
- 
+
 let boxB: StringBox = { contents: "world" };
 boxB.contents;
+
+function doSomething(value: Array<string>) {
+  console.log(value);
+}
+
+let myArray: string[] = ["hello", "world"];
+
+// either of these work!
+doSomething(myArray);
+doSomething(new Array("hello", "world"));
