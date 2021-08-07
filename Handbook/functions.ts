@@ -110,3 +110,8 @@ function multiply(n: number, ...m: number[]) {
 // 'a' gets value [10, 20, 30, 40]
 const a = multiply(10, 1, 2, 3, 4);
 console.log(a)
+
+function sum({ a, b, c }) {
+  console.log(a + b + c);
+}
+sum({ a: 10, b: 3, c: 9 });
