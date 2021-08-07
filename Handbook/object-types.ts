@@ -1,5 +1,14 @@
-function greet(person: { name: string; age: number }) {
+interface Person {
+  name: string;
+  age: number;
+}
+
+function greet(person: Person) {
   return "Hello " + person.name;
 }
 
-console.log(greet({name: 'toka', age: 1}))
+let toka: Person = {
+    name: 'toka',
+    age: 1
+}
+console.log(greet(toka))
