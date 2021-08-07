@@ -52,3 +52,11 @@ const longerArray = longest([1, 2], [1, 2, 3]);
 const longerString = longest("alice", "bob");
 // Error! Numbers don't have a 'length' property
 //const notOK = longest(10, 100);
+
+function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
+  return arr1.concat(arr2);
+}
+
+// const arr = combine([1, 2, 3], ["hello"]);
+const arr = combine<string | number>([1, 2, 3], ["hello"]);
+console.log(arr);

@@ -38,3 +38,9 @@ var longerArray = longest([1, 2], [1, 2, 3]);
 var longerString = longest("alice", "bob");
 // Error! Numbers don't have a 'length' property
 //const notOK = longest(10, 100);
+function combine(arr1, arr2) {
+    return arr1.concat(arr2);
+}
+// const arr = combine([1, 2, 3], ["hello"]);
+var arr = combine([1, 2, 3], ["hello"]);
+console.log(arr);
