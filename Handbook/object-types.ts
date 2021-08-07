@@ -46,3 +46,16 @@ let readonlyPerson: ReadonlyPerson = writablePerson;
 console.log(readonlyPerson.age); // prints '42'
 writablePerson.age++;
 console.log(readonlyPerson.age); // prints '43'
+
+
+interface BasicAddress {
+  name?: string;
+  street: string;
+  city: string;
+  country: string;
+  postalCode: string;
+}
+
+interface AddressWithUnit extends BasicAddress {
+  unit: string;
+}
