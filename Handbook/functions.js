@@ -44,3 +44,15 @@ function combine(arr1, arr2) {
 // const arr = combine([1, 2, 3], ["hello"]);
 var arr = combine([1, 2, 3], ["hello"]);
 console.log(arr);
+function firstElement1(arr) {
+    return arr[0];
+}
+function firstElement2(arr) {
+    return arr[0];
+}
+// a: number (good)
+var a = firstElement1([1, 2, 3]);
+// b: any (bad)
+var b = firstElement2([1, 2, 3]);
+console.log(a);
+console.log(b);

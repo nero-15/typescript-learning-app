@@ -60,3 +60,18 @@ function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
 // const arr = combine([1, 2, 3], ["hello"]);
 const arr = combine<string | number>([1, 2, 3], ["hello"]);
 console.log(arr);
+
+function firstElement1<Type>(arr: Type[]) {
+  return arr[0];
+}
+
+function firstElement2<Type extends any[]>(arr: Type) {
+  return arr[0];
+}
+
+// a: number (good)
+const a = firstElement1([1, 2, 3]);
+// b: any (bad)
+const b = firstElement2([1, 2, 3]);
+console.log(a)
+console.log(b)
