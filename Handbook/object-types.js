@@ -21,8 +21,11 @@ var readonlyPerson = writablePerson;
 console.log(readonlyPerson.age); // prints '42'
 writablePerson.age++;
 console.log(readonlyPerson.age); // prints '43'
-var cc = {
-    color: "red",
-    radius: 42
-};
-console.log(cc);
+function draw(circle) {
+    console.log("Color was " + circle.color);
+    console.log("Radius was " + circle.radius);
+}
+// okay
+draw({ color: "blue", radius: 42 });
+// oops
+//draw({ color: "red", raidus: 42 });
