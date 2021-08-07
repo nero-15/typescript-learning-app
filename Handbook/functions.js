@@ -56,3 +56,10 @@ var a = firstElement1([1, 2, 3]);
 var b = firstElement2([1, 2, 3]);
 console.log(a);
 console.log(b);
+var user = {
+    id: 123,
+    admin: false,
+    becomeAdmin: function () {
+        this.admin = true;
+    }
+};

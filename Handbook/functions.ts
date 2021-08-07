@@ -75,3 +75,12 @@ const a = firstElement1([1, 2, 3]);
 const b = firstElement2([1, 2, 3]);
 console.log(a)
 console.log(b)
+
+const user = {
+  id: 123,
+
+  admin: false,
+  becomeAdmin: function () {
+    this.admin = true;
+  },
+};
