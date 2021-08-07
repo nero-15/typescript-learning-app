@@ -52,3 +52,66 @@ const longerArray = longest([1, 2], [1, 2, 3]);
 const longerString = longest("alice", "bob");
 // Error! Numbers don't have a 'length' property
 //const notOK = longest(10, 100);
+
+function combine<Type>(arr1: Type[], arr2: Type[]): Type[] {
+  return arr1.concat(arr2);
+}
+
+// const arr = combine([1, 2, 3], ["hello"]);
+const arr = combine<string | number>([1, 2, 3], ["hello"]);
+console.log(arr);
+
+function firstElement1<Type>(arr: Type[]) {
+  return arr[0];
+}
+
+function firstElement2<Type extends any[]>(arr: Type) {
+  return arr[0];
+}
+
+// a: number (good)
+//const a = firstElement1([1, 2, 3]);
+// b: any (bad)
+const b = firstElement2([1, 2, 3]);
+//console.log(a)
+console.log(b)
+
+const user = {
+  id: 123,
+
+  admin: false,
+  becomeAdmin: function () {
+    this.admin = true;
+  },
+};
+
+// The inferred return type is void
+function noop() {
+  return;
+}
+
+function fail(msg: string): never {
+  throw new Error(msg);
+}
+
+function fn(x: string | number) {
+  if (typeof x === "string") {
+    // do something
+  } else if (typeof x === "number") {
+    // do something else
+  } else {
+    x; // has type 'never'!
+  }
+}
+
+function multiply(n: number, ...m: number[]) {
+  return m.map((x) => n * x);
+}
+// 'a' gets value [10, 20, 30, 40]
+const a = multiply(10, 1, 2, 3, 4);
+console.log(a)
+
+function sum({ a, b, c }) {
+  console.log(a + b + c);
+}
+sum({ a: 10, b: 3, c: 9 });
