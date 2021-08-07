@@ -137,3 +137,12 @@ let myArray: string[] = ["hello", "world"];
 // either of these work!
 doSomething(myArray);
 doSomething(new Array("hello", "world"));
+
+function doStuff(values: ReadonlyArray<string>) {
+  // We can read from 'values'...
+  const copy = values.slice();
+  console.log(`The first value is ${values[0]}`);
+
+  // ...but we can't mutate 'values'.
+  //values.push("hello!");
+}
