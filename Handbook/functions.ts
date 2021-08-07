@@ -70,10 +70,10 @@ function firstElement2<Type extends any[]>(arr: Type) {
 }
 
 // a: number (good)
-const a = firstElement1([1, 2, 3]);
+//const a = firstElement1([1, 2, 3]);
 // b: any (bad)
 const b = firstElement2([1, 2, 3]);
-console.log(a)
+//console.log(a)
 console.log(b)
 
 const user = {
@@ -103,3 +103,10 @@ function fn(x: string | number) {
     x; // has type 'never'!
   }
 }
+
+function multiply(n: number, ...m: number[]) {
+  return m.map((x) => n * x);
+}
+// 'a' gets value [10, 20, 30, 40]
+const a = multiply(10, 1, 2, 3, 4);
+console.log(a)
