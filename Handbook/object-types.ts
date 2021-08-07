@@ -95,3 +95,35 @@ draw({ color: "blue", radius: 42 });
 
 // oops
 //draw({ color: "red", raidus: 42 });
+
+// Generic Object Types
+// interface Box {
+//   contents: unknown;
+// }
+//
+// let x: Box = {
+//   contents: "hello world",
+// };
+//
+// // we could check 'x.contents'
+// if (typeof x.contents === "string") {
+//   console.log(x.contents.toLowerCase());
+// }
+//
+// // or we could use a type assertion
+// console.log((x.contents as string).toLowerCase());
+
+interface Box<Type> {
+  contents: Type;
+}
+
+interface StringBox {
+  contents: string;
+}
+
+let boxA: Box<string> = { contents: "hello" };
+boxA.contents;
+
+ 
+let boxB: StringBox = { contents: "world" };
+boxB.contents;

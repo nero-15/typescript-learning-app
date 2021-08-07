@@ -27,5 +27,7 @@ function draw(circle) {
 }
 // okay
 draw({ color: "blue", radius: 42 });
-// oops
-//draw({ color: "red", raidus: 42 });
+var boxA = { contents: "hello" };
+boxA.contents;
+var boxB = { contents: "world" };
+boxB.contents;
