@@ -128,15 +128,15 @@ boxA.contents;
 let boxB: StringBox = { contents: "world" };
 boxB.contents;
 
-function doSomething(value: Array<string>) {
-  console.log(value);
-}
+// function doSomething(value: Array<string>) {
+//   console.log(value);
+// }
 
 let myArray: string[] = ["hello", "world"];
 
 // either of these work!
-doSomething(myArray);
-doSomething(new Array("hello", "world"));
+// doSomething(myArray);
+// doSomething(new Array("hello", "world"));
 
 function doStuff(values: ReadonlyArray<string>) {
   // We can read from 'values'...
@@ -146,3 +146,10 @@ function doStuff(values: ReadonlyArray<string>) {
   // ...but we can't mutate 'values'.
   //values.push("hello!");
 }
+
+function doSomething(pair: [string, number]) {
+  const a = pair[0];
+  const b = pair[1];
+}
+
+doSomething(["hello", 42]);

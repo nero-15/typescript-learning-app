@@ -25,10 +25,22 @@ var boxA = { contents: "hello" };
 boxA.contents;
 var boxB = { contents: "world" };
 boxB.contents;
-function doSomething(value) {
-    console.log(value);
-}
+// function doSomething(value: Array<string>) {
+//   console.log(value);
+// }
 var myArray = ["hello", "world"];
 // either of these work!
-doSomething(myArray);
-doSomething(new Array("hello", "world"));
+// doSomething(myArray);
+// doSomething(new Array("hello", "world"));
+function doStuff(values) {
+    // We can read from 'values'...
+    var copy = values.slice();
+    console.log("The first value is " + values[0]);
+    // ...but we can't mutate 'values'.
+    //values.push("hello!");
+}
+function doSomething(pair) {
+    var a = pair[0];
+    var b = pair[1];
+}
+console.log(doSomething(["hello", 42]));
