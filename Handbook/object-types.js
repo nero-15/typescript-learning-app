@@ -21,3 +21,8 @@ var readonlyPerson = writablePerson;
 console.log(readonlyPerson.age); // prints '42'
 writablePerson.age++;
 console.log(readonlyPerson.age); // prints '43'
+var cc = {
+    color: "red",
+    radius: 42
+};
+console.log(cc);
