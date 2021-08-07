@@ -63,3 +63,21 @@ var user = {
         this.admin = true;
     }
 };
+// The inferred return type is void
+function noop() {
+    return;
+}
+function fail(msg) {
+    throw new Error(msg);
+}
+function fn(x) {
+    if (typeof x === "string") {
+        // do something
+    }
+    else if (typeof x === "number") {
+        // do something else
+    }
+    else {
+        x; // has type 'never'!
+    }
+}
