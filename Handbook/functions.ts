@@ -84,3 +84,8 @@ const user = {
     this.admin = true;
   },
 };
+
+// The inferred return type is void
+function noop() {
+  return;
+}
