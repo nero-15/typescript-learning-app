@@ -1,3 +1,3 @@
-function identity(arg: any): any {
+function identity<Type>(arg: Type): Type {
   return arg;
 }
