@@ -1,3 +1,3 @@
-function identity(arg: number): number {
+function identity(arg: any): any {
   return arg;
 }
