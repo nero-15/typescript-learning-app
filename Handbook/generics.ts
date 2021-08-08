@@ -5,3 +5,8 @@ function identity<Type>(arg: Type): Type {
 
 let output = identity("myString");
 console.log(output);
+
+function loggingIdentity<Type>(arg: Type[]): Type[] {
+  console.log(arg.length);// Array has a .length, so no more error
+  return arg;
+}
