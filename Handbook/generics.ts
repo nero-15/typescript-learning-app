@@ -1,5 +1,6 @@
 function identity<Type>(arg: Type): Type {
-  return arg;
+    //console.log(arg.length);//error
+    return arg;
 }
 
 let output = identity("myString");
