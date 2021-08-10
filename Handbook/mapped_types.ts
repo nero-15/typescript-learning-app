@@ -7,3 +7,5 @@ const conforms: OnlyBoolsAndHorses = {
   del: true,
   rodney: false,
 };
+
+console.log(conforms);
