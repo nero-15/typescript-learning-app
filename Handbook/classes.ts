@@ -1,10 +1,10 @@
 class Point {
-  x: number;
-  y: number;
+  x = 0;
+  y = 0;
 }
 
 const pt = new Point();
-pt.x = 0;
-pt.y = 0;
+// Prints 0, 0
+console.log(`${pt.x}, ${pt.y}`);
 
-console.log(pt);
+// pt.x = "0"; error
