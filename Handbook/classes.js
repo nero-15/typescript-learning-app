@@ -52,18 +52,18 @@ var Greeter = /** @class */ (function () {
 var g = new Greeter();
 //g.name = "also not ok";
 console.log(g);
-var Point = /** @class */ (function () {
-    // Normal signature with defaults
-    function Point(x, y) {
-        if (x === void 0) { x = 0; }
-        if (y === void 0) { y = 0; }
-        this.x = x;
-        this.y = y;
-    }
-    return Point;
-}());
-var pt = new Point();
-console.log(pt);
+// class Point {
+//   x: number;
+//   y: number;
+//
+//   // Normal signature with defaults
+//   constructor(x = 0, y = 0) {
+//     this.x = x;
+//     this.y = y;
+//   }
+// }
+// const pt = new Point();
+// console.log(pt);
 var Base = /** @class */ (function () {
     function Base() {
         this.k = 4;
@@ -83,3 +83,17 @@ var Derived = /** @class */ (function (_super) {
 }(Base));
 var derived = new Derived();
 console.log(derived);
+var Point = /** @class */ (function () {
+    function Point() {
+        this.x = 10;
+        this.y = 10;
+    }
+    Point.prototype.scale = function (n) {
+        this.x *= n;
+        this.y *= n;
+    };
+    return Point;
+}());
+var pt = new Point();
+console.log(pt.scale(5));
+console.log(pt);

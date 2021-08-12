@@ -44,18 +44,18 @@ const g = new Greeter();
 //g.name = "also not ok";
 console.log(g);
 
-class Point {
-  x: number;
-  y: number;
-
-  // Normal signature with defaults
-  constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-  }
-}
-const pt = new Point();
-console.log(pt);
+// class Point {
+//   x: number;
+//   y: number;
+//
+//   // Normal signature with defaults
+//   constructor(x = 0, y = 0) {
+//     this.x = x;
+//     this.y = y;
+//   }
+// }
+// const pt = new Point();
+// console.log(pt);
 
 class Base {
   k = 4;
@@ -71,3 +71,16 @@ class Derived extends Base {
 
 const derived = new Derived();
 console.log(derived);
+
+class Point {
+  x = 10;
+  y = 10;
+
+  scale(n: number): void {
+    this.x *= n;
+    this.y *= n;
+  }
+}
+const pt = new Point();
+pt.scale(5);
+console.log(pt);
