@@ -95,5 +95,23 @@ var Point = /** @class */ (function () {
     return Point;
 }());
 var pt = new Point();
-console.log(pt.scale(5));
+pt.scale(5);
 console.log(pt);
+var C = /** @class */ (function () {
+    function C() {
+        this._length = 0;
+    }
+    Object.defineProperty(C.prototype, "length", {
+        get: function () {
+            return this._length;
+        },
+        set: function (value) {
+            this._length = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return C;
+}());
+var c = new C();
+console.log(c);
