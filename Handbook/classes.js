@@ -24,3 +24,18 @@ var OKGreeter = /** @class */ (function () {
 }());
 var og = new OKGreeter();
 console.log(og);
+var Greeter = /** @class */ (function () {
+    function Greeter(otherName) {
+        this.name = "world";
+        if (otherName !== undefined) {
+            this.name = otherName;
+        }
+    }
+    Greeter.prototype.err = function () {
+        //this.name = "not ok";
+    };
+    return Greeter;
+}());
+var g = new Greeter();
+//g.name = "also not ok";
+console.log(g);
