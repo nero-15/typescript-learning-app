@@ -176,3 +176,20 @@ var SpecialGreeter = /** @class */ (function (_super) {
 var g = new SpecialGreeter();
 g.greet(); // OK
 // g.getName();//error
+// class Base {
+//   private x = 0;
+// }
+// const b = new Base();
+// // Can't access from outside the class
+// console.log(b.x);
+var MyClass = /** @class */ (function () {
+    function MyClass() {
+    }
+    MyClass.printX = function () {
+        console.log(MyClass.x);
+    };
+    MyClass.x = 0;
+    return MyClass;
+}());
+console.log(MyClass.x);
+MyClass.printX();

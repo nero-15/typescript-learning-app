@@ -166,3 +166,12 @@ g.greet(); // OK
 // const b = new Base();
 // // Can't access from outside the class
 // console.log(b.x);
+
+class MyClass {
+  static x = 0;
+  static printX() {
+    console.log(MyClass.x);
+  }
+}
+console.log(MyClass.x);
+MyClass.printX();
