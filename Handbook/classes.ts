@@ -84,3 +84,19 @@ class Point {
 const pt = new Point();
 pt.scale(5);
 console.log(pt);
+
+interface Pingable {
+  ping(): void;
+}
+
+class Sonar implements Pingable {
+  ping() {
+    console.log("ping!");
+  }
+}
+
+// class Ball implements Pingable { //error
+//   pong() {
+//     console.log("pong!");
+//   }
+// }
