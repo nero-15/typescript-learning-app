@@ -227,3 +227,13 @@ const a = new Params(1, 2, 3);
 console.log(a.x);
 
 // console.log(a.z);//error
+
+const someClass = class<Type> {
+  content: Type;
+  constructor(value: Type) {
+    this.content = value;
+  }
+};
+
+const m = new someClass("Hello, world");
+console.log(m)

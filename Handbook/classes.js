@@ -240,3 +240,11 @@ var Params = /** @class */ (function () {
 var a = new Params(1, 2, 3);
 console.log(a.x);
 // console.log(a.z);//error
+var someClass = /** @class */ (function () {
+    function class_1(value) {
+        this.content = value;
+    }
+    return class_1;
+}());
+var m = new someClass("Hello, world");
+console.log(m);
