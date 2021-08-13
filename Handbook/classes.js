@@ -64,25 +64,20 @@ console.log(g);
 // }
 // const pt = new Point();
 // console.log(pt);
-var Base = /** @class */ (function () {
-    function Base() {
-        this.k = 4;
-    }
-    return Base;
-}());
-var Derived = /** @class */ (function (_super) {
-    __extends(Derived, _super);
-    function Derived() {
-        var _this = 
-        // Prints a wrong value in ES5; throws exception in ES6
-        _super.call(this) || this;
-        console.log(_this.k);
-        return _this;
-    }
-    return Derived;
-}(Base));
-var derived = new Derived();
-console.log(derived);
+// class Base {
+//   k = 4;
+// }
+//
+// class Derived extends Base {
+//   constructor() {
+//     // Prints a wrong value in ES5; throws exception in ES6
+//     super();//'super' must be called before accessing 'this' in the constructor of a derived class.
+//     console.log(this.k);
+//   }
+// }
+//
+// const derived = new Derived();
+// console.log(derived);
 var Point = /** @class */ (function () {
     function Point() {
         this.x = 10;
@@ -110,28 +105,47 @@ var Sonar = /** @class */ (function () {
 //     console.log("pong!");
 //   }
 // }
-var Animal = /** @class */ (function () {
-    function Animal() {
+// class Animal {
+//   move() {
+//     console.log("Moving along!");
+//   }
+// }
+//
+// class Dog extends Animal {
+//   woof(times: number) {
+//     for (let i = 0; i < times; i++) {
+//       console.log("woof!");
+//     }
+//   }
+// }
+// const d = new Dog();
+// // Base class method
+// d.move();
+// // Derived class method
+// d.woof(3);
+var Base = /** @class */ (function () {
+    function Base() {
     }
-    Animal.prototype.move = function () {
-        console.log("Moving along!");
+    Base.prototype.greet = function () {
+        console.log("Hello, world!");
     };
-    return Animal;
+    return Base;
 }());
-var Dog = /** @class */ (function (_super) {
-    __extends(Dog, _super);
-    function Dog() {
+var Derived = /** @class */ (function (_super) {
+    __extends(Derived, _super);
+    function Derived() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Dog.prototype.woof = function (times) {
-        for (var i = 0; i < times; i++) {
-            console.log("woof!");
+    Derived.prototype.greet = function (name) {
+        if (name === undefined) {
+            _super.prototype.greet.call(this);
+        }
+        else {
+            console.log("Hello, " + name.toUpperCase());
         }
     };
-    return Dog;
-}(Animal));
-var d = new Dog();
-// Base class method
-d.move();
-// Derived class method
-d.woof(3);
+    return Derived;
+}(Base));
+var d = new Derived();
+d.greet();
+d.greet("reader");

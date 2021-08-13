@@ -57,20 +57,20 @@ console.log(g);
 // const pt = new Point();
 // console.log(pt);
 
-class Base {
-  k = 4;
-}
-
-class Derived extends Base {
-  constructor() {
-    // Prints a wrong value in ES5; throws exception in ES6
-    super();//'super' must be called before accessing 'this' in the constructor of a derived class.
-    console.log(this.k);
-  }
-}
-
-const derived = new Derived();
-console.log(derived);
+// class Base {
+//   k = 4;
+// }
+//
+// class Derived extends Base {
+//   constructor() {
+//     // Prints a wrong value in ES5; throws exception in ES6
+//     super();//'super' must be called before accessing 'this' in the constructor of a derived class.
+//     console.log(this.k);
+//   }
+// }
+//
+// const derived = new Derived();
+// console.log(derived);
 
 class Point {
   x = 10;
@@ -101,22 +101,42 @@ class Sonar implements Pingable {
 //   }
 // }
 
-class Animal {
-  move() {
-    console.log("Moving along!");
+// class Animal {
+//   move() {
+//     console.log("Moving along!");
+//   }
+// }
+//
+// class Dog extends Animal {
+//   woof(times: number) {
+//     for (let i = 0; i < times; i++) {
+//       console.log("woof!");
+//     }
+//   }
+// }
+
+// const d = new Dog();
+// // Base class method
+// d.move();
+// // Derived class method
+// d.woof(3);
+
+class Base {
+  greet() {
+    console.log("Hello, world!");
   }
 }
 
-class Dog extends Animal {
-  woof(times: number) {
-    for (let i = 0; i < times; i++) {
-      console.log("woof!");
+class Derived extends Base {
+  greet(name?: string) {
+    if (name === undefined) {
+      super.greet();
+    } else {
+      console.log(`Hello, ${name.toUpperCase()}`);
     }
   }
 }
 
-const d = new Dog();
-// Base class method
-d.move();
-// Derived class method
-d.woof(3);
+const d = new Derived();
+d.greet();
+d.greet("reader");
