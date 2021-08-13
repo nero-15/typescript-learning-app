@@ -159,3 +159,10 @@ class SpecialGreeter extends Greeter {
 const g = new SpecialGreeter();
 g.greet(); // OK
 // g.getName();//error
+
+// class Base {
+//   private x = 0;
+// }
+// const b = new Base();
+// // Can't access from outside the class
+// console.log(b.x);
