@@ -193,3 +193,13 @@ var MyClass = /** @class */ (function () {
 }());
 console.log(MyClass.x);
 MyClass.printX();
+var Box = /** @class */ (function () {
+    function Box(value) {
+        this.contents = value;
+    }
+    return Box;
+}());
+var b = new Box("hello!");
+var c = new Box(15);
+console.log(b);
+console.log(c);
