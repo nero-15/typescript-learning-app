@@ -156,8 +156,8 @@ class SpecialGreeter extends Greeter {
     console.log("Howdy, " + this.getName());
   }
 }
-const g = new SpecialGreeter();
-g.greet(); // OK
+// const g = new SpecialGreeter();
+// g.greet(); // OK
 // g.getName();//error
 
 // class Base {
@@ -188,17 +188,28 @@ class Box<Type> {
 // console.log(b)
 // console.log(c)
 
+// class MyClass {
+//   name = "MyClass";
+//   getName() {
+//     return this.name;
+//   }
+// }
+// const c = new MyClass();
+// const obj = {
+//   name: "obj",
+//   getName: c.getName,
+// };
+//
+// // Prints "obj", not "MyClass"
+// console.log(obj.getName());
+
 class MyClass {
   name = "MyClass";
-  getName() {
+  getName = () => {
     return this.name;
-  }
+  };
 }
 const c = new MyClass();
-const obj = {
-  name: "obj",
-  getName: c.getName,
-};
-
-// Prints "obj", not "MyClass"
-console.log(obj.getName());
+const g = c.getName;
+// Prints "MyClass" instead of crashing
+console.log(g());

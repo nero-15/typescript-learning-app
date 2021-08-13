@@ -173,8 +173,8 @@ var SpecialGreeter = /** @class */ (function (_super) {
     };
     return SpecialGreeter;
 }(Greeter));
-var g = new SpecialGreeter();
-g.greet(); // OK
+// const g = new SpecialGreeter();
+// g.greet(); // OK
 // g.getName();//error
 // class Base {
 //   private x = 0;
@@ -200,19 +200,31 @@ var Box = /** @class */ (function () {
 // const c = new Box(15);
 // console.log(b)
 // console.log(c)
+// class MyClass {
+//   name = "MyClass";
+//   getName() {
+//     return this.name;
+//   }
+// }
+// const c = new MyClass();
+// const obj = {
+//   name: "obj",
+//   getName: c.getName,
+// };
+//
+// // Prints "obj", not "MyClass"
+// console.log(obj.getName());
 var MyClass = /** @class */ (function () {
     function MyClass() {
+        var _this = this;
         this.name = "MyClass";
+        this.getName = function () {
+            return _this.name;
+        };
     }
-    MyClass.prototype.getName = function () {
-        return this.name;
-    };
     return MyClass;
 }());
 var c = new MyClass();
-var obj = {
-    name: "obj",
-    getName: c.getName
-};
-// Prints "obj", not "MyClass"
-console.log(obj.getName());
+var g = c.getName;
+// Prints "MyClass" instead of crashing
+console.log(g());
