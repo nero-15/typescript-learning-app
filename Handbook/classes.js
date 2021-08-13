@@ -37,21 +37,23 @@ var OKGreeter = /** @class */ (function () {
 }());
 var og = new OKGreeter();
 console.log(og);
-var Greeter = /** @class */ (function () {
-    function Greeter(otherName) {
-        this.name = "world";
-        if (otherName !== undefined) {
-            this.name = otherName;
-        }
-    }
-    Greeter.prototype.err = function () {
-        //this.name = "not ok";
-    };
-    return Greeter;
-}());
-var g = new Greeter();
+//
+// class Greeter {
+//   readonly name: string = "world";
+//
+//   constructor(otherName?: string) {
+//     if (otherName !== undefined) {
+//       this.name = otherName;
+//     }
+//   }
+//
+//   err() {
+//     //this.name = "not ok";
+//   }
+// }
+// const g = new Greeter();
 //g.name = "also not ok";
-console.log(g);
+// console.log(g);
 // class Point {
 //   x: number;
 //   y: number;
@@ -149,3 +151,28 @@ var Derived = /** @class */ (function (_super) {
 var d = new Derived();
 d.greet();
 d.greet("reader");
+var Greeter = /** @class */ (function () {
+    function Greeter() {
+    }
+    Greeter.prototype.greet = function () {
+        console.log("Hello, " + this.getName());
+    };
+    Greeter.prototype.getName = function () {
+        return "hi";
+    };
+    return Greeter;
+}());
+var SpecialGreeter = /** @class */ (function (_super) {
+    __extends(SpecialGreeter, _super);
+    function SpecialGreeter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SpecialGreeter.prototype.howdy = function () {
+        // OK to access protected member here
+        console.log("Howdy, " + this.getName());
+    };
+    return SpecialGreeter;
+}(Greeter));
+var g = new SpecialGreeter();
+g.greet(); // OK
+// g.getName();//error

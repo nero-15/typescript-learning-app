@@ -26,23 +26,23 @@ class OKGreeter {
 }
 const og = new OKGreeter ();
 console.log(og);
-
-class Greeter {
-  readonly name: string = "world";
-
-  constructor(otherName?: string) {
-    if (otherName !== undefined) {
-      this.name = otherName;
-    }
-  }
-
-  err() {
-    //this.name = "not ok";
-  }
-}
-const g = new Greeter();
+//
+// class Greeter {
+//   readonly name: string = "world";
+//
+//   constructor(otherName?: string) {
+//     if (otherName !== undefined) {
+//       this.name = otherName;
+//     }
+//   }
+//
+//   err() {
+//     //this.name = "not ok";
+//   }
+// }
+// const g = new Greeter();
 //g.name = "also not ok";
-console.log(g);
+// console.log(g);
 
 // class Point {
 //   x: number;
@@ -140,3 +140,22 @@ class Derived extends Base {
 const d = new Derived();
 d.greet();
 d.greet("reader");
+
+class Greeter {
+  public greet() {
+    console.log("Hello, " + this.getName());
+  }
+  protected getName() {
+    return "hi";
+  }
+}
+
+class SpecialGreeter extends Greeter {
+  public howdy() {
+    // OK to access protected member here
+    console.log("Howdy, " + this.getName());
+  }
+}
+const g = new SpecialGreeter();
+g.greet(); // OK
+// g.getName();//error
