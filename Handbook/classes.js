@@ -97,21 +97,41 @@ var Point = /** @class */ (function () {
 var pt = new Point();
 pt.scale(5);
 console.log(pt);
-var C = /** @class */ (function () {
-    function C() {
-        this._length = 0;
+var Sonar = /** @class */ (function () {
+    function Sonar() {
     }
-    Object.defineProperty(C.prototype, "length", {
-        get: function () {
-            return this._length;
-        },
-        set: function (value) {
-            this._length = value;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return C;
+    Sonar.prototype.ping = function () {
+        console.log("ping!");
+    };
+    return Sonar;
 }());
-var c = new C();
-console.log(c);
+// class Ball implements Pingable { //error
+//   pong() {
+//     console.log("pong!");
+//   }
+// }
+var Animal = /** @class */ (function () {
+    function Animal() {
+    }
+    Animal.prototype.move = function () {
+        console.log("Moving along!");
+    };
+    return Animal;
+}());
+var Dog = /** @class */ (function (_super) {
+    __extends(Dog, _super);
+    function Dog() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Dog.prototype.woof = function (times) {
+        for (var i = 0; i < times; i++) {
+            console.log("woof!");
+        }
+    };
+    return Dog;
+}(Animal));
+var d = new Dog();
+// Base class method
+d.move();
+// Derived class method
+d.woof(3);
