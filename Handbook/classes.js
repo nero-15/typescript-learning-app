@@ -37,21 +37,23 @@ var OKGreeter = /** @class */ (function () {
 }());
 var og = new OKGreeter();
 console.log(og);
-var Greeter = /** @class */ (function () {
-    function Greeter(otherName) {
-        this.name = "world";
-        if (otherName !== undefined) {
-            this.name = otherName;
-        }
-    }
-    Greeter.prototype.err = function () {
-        //this.name = "not ok";
-    };
-    return Greeter;
-}());
-var g = new Greeter();
+//
+// class Greeter {
+//   readonly name: string = "world";
+//
+//   constructor(otherName?: string) {
+//     if (otherName !== undefined) {
+//       this.name = otherName;
+//     }
+//   }
+//
+//   err() {
+//     //this.name = "not ok";
+//   }
+// }
+// const g = new Greeter();
 //g.name = "also not ok";
-console.log(g);
+// console.log(g);
 // class Point {
 //   x: number;
 //   y: number;
@@ -64,25 +66,20 @@ console.log(g);
 // }
 // const pt = new Point();
 // console.log(pt);
-var Base = /** @class */ (function () {
-    function Base() {
-        this.k = 4;
-    }
-    return Base;
-}());
-var Derived = /** @class */ (function (_super) {
-    __extends(Derived, _super);
-    function Derived() {
-        var _this = 
-        // Prints a wrong value in ES5; throws exception in ES6
-        _super.call(this) || this;
-        console.log(_this.k);
-        return _this;
-    }
-    return Derived;
-}(Base));
-var derived = new Derived();
-console.log(derived);
+// class Base {
+//   k = 4;
+// }
+//
+// class Derived extends Base {
+//   constructor() {
+//     // Prints a wrong value in ES5; throws exception in ES6
+//     super();//'super' must be called before accessing 'this' in the constructor of a derived class.
+//     console.log(this.k);
+//   }
+// }
+//
+// const derived = new Derived();
+// console.log(derived);
 var Point = /** @class */ (function () {
     function Point() {
         this.x = 10;
@@ -97,21 +94,157 @@ var Point = /** @class */ (function () {
 var pt = new Point();
 pt.scale(5);
 console.log(pt);
-var C = /** @class */ (function () {
-    function C() {
-        this._length = 0;
+var Sonar = /** @class */ (function () {
+    function Sonar() {
     }
-    Object.defineProperty(C.prototype, "length", {
-        get: function () {
-            return this._length;
-        },
-        set: function (value) {
-            this._length = value;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    return C;
+    Sonar.prototype.ping = function () {
+        console.log("ping!");
+    };
+    return Sonar;
 }());
-var c = new C();
-console.log(c);
+// class Ball implements Pingable { //error
+//   pong() {
+//     console.log("pong!");
+//   }
+// }
+// class Animal {
+//   move() {
+//     console.log("Moving along!");
+//   }
+// }
+//
+// class Dog extends Animal {
+//   woof(times: number) {
+//     for (let i = 0; i < times; i++) {
+//       console.log("woof!");
+//     }
+//   }
+// }
+// const d = new Dog();
+// // Base class method
+// d.move();
+// // Derived class method
+// d.woof(3);
+var Base = /** @class */ (function () {
+    function Base() {
+    }
+    Base.prototype.greet = function () {
+        console.log("Hello, world!");
+    };
+    return Base;
+}());
+var Derived = /** @class */ (function (_super) {
+    __extends(Derived, _super);
+    function Derived() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    Derived.prototype.greet = function (name) {
+        if (name === undefined) {
+            _super.prototype.greet.call(this);
+        }
+        else {
+            console.log("Hello, " + name.toUpperCase());
+        }
+    };
+    return Derived;
+}(Base));
+var d = new Derived();
+d.greet();
+d.greet("reader");
+var Greeter = /** @class */ (function () {
+    function Greeter() {
+    }
+    Greeter.prototype.greet = function () {
+        console.log("Hello, " + this.getName());
+    };
+    Greeter.prototype.getName = function () {
+        return "hi";
+    };
+    return Greeter;
+}());
+var SpecialGreeter = /** @class */ (function (_super) {
+    __extends(SpecialGreeter, _super);
+    function SpecialGreeter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    SpecialGreeter.prototype.howdy = function () {
+        // OK to access protected member here
+        console.log("Howdy, " + this.getName());
+    };
+    return SpecialGreeter;
+}(Greeter));
+// const g = new SpecialGreeter();
+// g.greet(); // OK
+// g.getName();//error
+// class Base {
+//   private x = 0;
+// }
+// const b = new Base();
+// // Can't access from outside the class
+// console.log(b.x);
+// class MyClass {
+//   static x = 0;
+//   static printX() {
+//     console.log(MyClass.x);
+//   }
+// }
+// console.log(MyClass.x);
+// MyClass.printX();
+var Box = /** @class */ (function () {
+    function Box(value) {
+        this.contents = value;
+    }
+    return Box;
+}());
+// const b = new Box("hello!");
+// const c = new Box(15);
+// console.log(b)
+// console.log(c)
+// class MyClass {
+//   name = "MyClass";
+//   getName() {
+//     return this.name;
+//   }
+// }
+// const c = new MyClass();
+// const obj = {
+//   name: "obj",
+//   getName: c.getName,
+// };
+//
+// // Prints "obj", not "MyClass"
+// console.log(obj.getName());
+var MyClass = /** @class */ (function () {
+    function MyClass() {
+        var _this = this;
+        this.name = "MyClass";
+        this.getName = function () {
+            return _this.name;
+        };
+    }
+    return MyClass;
+}());
+var c = new MyClass();
+var g = c.getName;
+// Prints "MyClass" instead of crashing
+console.log(g());
+var Params = /** @class */ (function () {
+    function Params(x, y, z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        // No body necessary
+    }
+    return Params;
+}());
+var a = new Params(1, 2, 3);
+console.log(a.x);
+// console.log(a.z);//error
+var someClass = /** @class */ (function () {
+    function class_1(value) {
+        this.content = value;
+    }
+    return class_1;
+}());
+var m = new someClass("Hello, world");
+console.log(m);

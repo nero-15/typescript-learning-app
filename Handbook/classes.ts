@@ -26,23 +26,23 @@ class OKGreeter {
 }
 const og = new OKGreeter ();
 console.log(og);
-
-class Greeter {
-  readonly name: string = "world";
-
-  constructor(otherName?: string) {
-    if (otherName !== undefined) {
-      this.name = otherName;
-    }
-  }
-
-  err() {
-    //this.name = "not ok";
-  }
-}
-const g = new Greeter();
+//
+// class Greeter {
+//   readonly name: string = "world";
+//
+//   constructor(otherName?: string) {
+//     if (otherName !== undefined) {
+//       this.name = otherName;
+//     }
+//   }
+//
+//   err() {
+//     //this.name = "not ok";
+//   }
+// }
+// const g = new Greeter();
 //g.name = "also not ok";
-console.log(g);
+// console.log(g);
 
 // class Point {
 //   x: number;
@@ -57,20 +57,20 @@ console.log(g);
 // const pt = new Point();
 // console.log(pt);
 
-class Base {
-  k = 4;
-}
-
-class Derived extends Base {
-  constructor() {
-    // Prints a wrong value in ES5; throws exception in ES6
-    super();//'super' must be called before accessing 'this' in the constructor of a derived class.
-    console.log(this.k);
-  }
-}
-
-const derived = new Derived();
-console.log(derived);
+// class Base {
+//   k = 4;
+// }
+//
+// class Derived extends Base {
+//   constructor() {
+//     // Prints a wrong value in ES5; throws exception in ES6
+//     super();//'super' must be called before accessing 'this' in the constructor of a derived class.
+//     console.log(this.k);
+//   }
+// }
+//
+// const derived = new Derived();
+// console.log(derived);
 
 class Point {
   x = 10;
@@ -84,3 +84,156 @@ class Point {
 const pt = new Point();
 pt.scale(5);
 console.log(pt);
+
+interface Pingable {
+  ping(): void;
+}
+
+class Sonar implements Pingable {
+  ping() {
+    console.log("ping!");
+  }
+}
+
+// class Ball implements Pingable { //error
+//   pong() {
+//     console.log("pong!");
+//   }
+// }
+
+// class Animal {
+//   move() {
+//     console.log("Moving along!");
+//   }
+// }
+//
+// class Dog extends Animal {
+//   woof(times: number) {
+//     for (let i = 0; i < times; i++) {
+//       console.log("woof!");
+//     }
+//   }
+// }
+
+// const d = new Dog();
+// // Base class method
+// d.move();
+// // Derived class method
+// d.woof(3);
+
+class Base {
+  greet() {
+    console.log("Hello, world!");
+  }
+}
+
+class Derived extends Base {
+  greet(name?: string) {
+    if (name === undefined) {
+      super.greet();
+    } else {
+      console.log(`Hello, ${name.toUpperCase()}`);
+    }
+  }
+}
+
+const d = new Derived();
+d.greet();
+d.greet("reader");
+
+class Greeter {
+  public greet() {
+    console.log("Hello, " + this.getName());
+  }
+  protected getName() {
+    return "hi";
+  }
+}
+
+class SpecialGreeter extends Greeter {
+  public howdy() {
+    // OK to access protected member here
+    console.log("Howdy, " + this.getName());
+  }
+}
+// const g = new SpecialGreeter();
+// g.greet(); // OK
+// g.getName();//error
+
+// class Base {
+//   private x = 0;
+// }
+// const b = new Base();
+// // Can't access from outside the class
+// console.log(b.x);
+
+// class MyClass {
+//   static x = 0;
+//   static printX() {
+//     console.log(MyClass.x);
+//   }
+// }
+// console.log(MyClass.x);
+// MyClass.printX();
+
+class Box<Type> {
+  contents: Type;
+  constructor(value: Type) {
+    this.contents = value;
+  }
+}
+
+// const b = new Box("hello!");
+// const c = new Box(15);
+// console.log(b)
+// console.log(c)
+
+// class MyClass {
+//   name = "MyClass";
+//   getName() {
+//     return this.name;
+//   }
+// }
+// const c = new MyClass();
+// const obj = {
+//   name: "obj",
+//   getName: c.getName,
+// };
+//
+// // Prints "obj", not "MyClass"
+// console.log(obj.getName());
+
+class MyClass {
+  name = "MyClass";
+  getName = () => {
+    return this.name;
+  };
+}
+const c = new MyClass();
+const g = c.getName;
+// Prints "MyClass" instead of crashing
+console.log(g());
+
+class Params {
+  constructor(
+    public readonly x: number,
+    protected y: number,
+    private z: number
+  ) {
+    // No body necessary
+  }
+}
+const a = new Params(1, 2, 3);
+console.log(a.x);
+
+// console.log(a.z);//error
+
+const someClass = class<Type> {
+  content: Type;
+  constructor(value: Type) {
+    this.content = value;
+  }
+};
+
+const m = new someClass("Hello, world");
+console.log(m)
