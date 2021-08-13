@@ -167,14 +167,14 @@ g.greet(); // OK
 // // Can't access from outside the class
 // console.log(b.x);
 
-class MyClass {
-  static x = 0;
-  static printX() {
-    console.log(MyClass.x);
-  }
-}
-console.log(MyClass.x);
-MyClass.printX();
+// class MyClass {
+//   static x = 0;
+//   static printX() {
+//     console.log(MyClass.x);
+//   }
+// }
+// console.log(MyClass.x);
+// MyClass.printX();
 
 class Box<Type> {
   contents: Type;
@@ -183,7 +183,22 @@ class Box<Type> {
   }
 }
 
-const b = new Box("hello!");
-const c = new Box(15);
-console.log(b)
-console.log(c)
+// const b = new Box("hello!");
+// const c = new Box(15);
+// console.log(b)
+// console.log(c)
+
+class MyClass {
+  name = "MyClass";
+  getName() {
+    return this.name;
+  }
+}
+const c = new MyClass();
+const obj = {
+  name: "obj",
+  getName: c.getName,
+};
+
+// Prints "obj", not "MyClass"
+console.log(obj.getName());

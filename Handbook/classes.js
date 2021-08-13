@@ -182,24 +182,37 @@ g.greet(); // OK
 // const b = new Base();
 // // Can't access from outside the class
 // console.log(b.x);
-var MyClass = /** @class */ (function () {
-    function MyClass() {
-    }
-    MyClass.printX = function () {
-        console.log(MyClass.x);
-    };
-    MyClass.x = 0;
-    return MyClass;
-}());
-console.log(MyClass.x);
-MyClass.printX();
+// class MyClass {
+//   static x = 0;
+//   static printX() {
+//     console.log(MyClass.x);
+//   }
+// }
+// console.log(MyClass.x);
+// MyClass.printX();
 var Box = /** @class */ (function () {
     function Box(value) {
         this.contents = value;
     }
     return Box;
 }());
-var b = new Box("hello!");
-var c = new Box(15);
-console.log(b);
-console.log(c);
+// const b = new Box("hello!");
+// const c = new Box(15);
+// console.log(b)
+// console.log(c)
+var MyClass = /** @class */ (function () {
+    function MyClass() {
+        this.name = "MyClass";
+    }
+    MyClass.prototype.getName = function () {
+        return this.name;
+    };
+    return MyClass;
+}());
+var c = new MyClass();
+var obj = {
+    name: "obj",
+    getName: c.getName
+};
+// Prints "obj", not "MyClass"
+console.log(obj.getName());
