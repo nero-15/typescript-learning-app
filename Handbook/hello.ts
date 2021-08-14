@@ -1,5 +1,4 @@
-function greet(person, date) {
-  console.log(`Hello ${person}, today is ${date}!`);
+// @filename: hello.ts
+export default function helloWorld() {
+  console.log("Hello, world!");
 }
-
-greet("Maddison", new Date());
