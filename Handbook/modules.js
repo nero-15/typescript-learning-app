@@ -9,9 +9,12 @@ hello_js_1["default"]();
 // import { pi as π } from "./maths.js";
 //
 // console.log(π);
-var math = require("./maths.js");
-console.log(math.pi);
-var positivePhi = math.absolute(math.phi);
-var fs = require("fs");
-var code = fs.readFileSync("hello.ts", "utf8");
-console.log(code);
+// import * as math from "./maths.js";
+//
+// console.log(math.pi);
+// const positivePhi = math.absolute(math.phi);
+// import fs = require("fs");
+// const code = fs.readFileSync("hello.ts", "utf8");
+// console.log(code)
+var maths = require("maths");
+maths.pi;

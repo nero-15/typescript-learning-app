@@ -10,11 +10,14 @@ hello();
 //
 // console.log(π);
 
-import * as math from "./maths.js";
+// import * as math from "./maths.js";
+//
+// console.log(math.pi);
+// const positivePhi = math.absolute(math.phi);
 
-console.log(math.pi);
-const positivePhi = math.absolute(math.phi);
+// import fs = require("fs");
+// const code = fs.readFileSync("hello.ts", "utf8");
+// console.log(code)
 
-import fs = require("fs");
-const code = fs.readFileSync("hello.ts", "utf8");
-console.log(code)
+const maths = require("maths");
+maths.pi;

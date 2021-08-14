@@ -1,19 +1,22 @@
-"use strict";
-exports.__esModule = true;
-exports.absolute = exports.RandomNumberGenerator = exports.phi = exports.squareTwo = exports.pi = void 0;
-// @filename: maths.ts
-exports.pi = 3.14;
-exports.squareTwo = 1.41;
-exports.phi = 1.61;
-var RandomNumberGenerator = /** @class */ (function () {
-    function RandomNumberGenerator() {
-    }
-    return RandomNumberGenerator;
-}());
-exports.RandomNumberGenerator = RandomNumberGenerator;
+// // @filename: maths.ts
+// export var pi = 3.14;
+// export let squareTwo = 1.41;
+// export const phi = 1.61;
+//
+// export class RandomNumberGenerator {}
+//
+// export function absolute(num: number) {
+//   if (num < 0) return num * -1;
+//   return num;
+// }
 function absolute(num) {
     if (num < 0)
         return num * -1;
     return num;
 }
-exports.absolute = absolute;
+module.exports = {
+    pi: 3.14,
+    squareTwo: 1.41,
+    phi: 1.61,
+    absolute: absolute
+};
