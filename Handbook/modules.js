@@ -12,3 +12,6 @@ hello_js_1["default"]();
 var math = require("./maths.js");
 console.log(math.pi);
 var positivePhi = math.absolute(math.phi);
+var fs = require("fs");
+var code = fs.readFileSync("hello.ts", "utf8");
+console.log(code);
