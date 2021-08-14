@@ -1,4 +1,7 @@
-function greet(person, date) {
-    console.log(`Hello ${person}, today is ${date}!`);
+"use strict";
+exports.__esModule = true;
+// @filename: hello.ts
+function helloWorld() {
+    console.log("Hello, world!");
 }
-greet("Maddison", new Date());
+exports["default"] = helloWorld;
