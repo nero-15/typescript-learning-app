@@ -6,5 +6,9 @@ hello_js_1["default"]();
 //
 // console.log(pi);
 // const absPhi = absolute(phi);
-var maths_js_1 = require("./maths.js");
-console.log(maths_js_1.pi);
+// import { pi as π } from "./maths.js";
+//
+// console.log(π);
+var math = require("./maths.js");
+console.log(math.pi);
+var positivePhi = math.absolute(math.phi);
