@@ -100,3 +100,10 @@ type T3 = Extract<"a" | "b" | "c", "a" | "f">;
 type T4 = Extract<string | number | (() => void), Function>;
 
 // type T4 = () => void
+
+type T5 = NonNullable<string | number | undefined>;
+
+// type T5 = string | number
+type T6 = NonNullable<string[] | null | undefined>;
+
+// type T6 = string[]
