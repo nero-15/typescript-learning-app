@@ -28,16 +28,16 @@ const obj: Props = { a: 5 };
 
 // const obj2: Required<Props> = { a: 5 };
 
-interface Todo {
-  title: string;
-}
-
-const todo: Readonly<Todo> = {
-  title: "Delete inactive users",
-};
-
-// todo.title = "Hello";
-console.log(todo)
+// interface Todo {
+//   title: string;
+// }
+//
+// const todo: Readonly<Todo> = {
+//   title: "Delete inactive users",
+// };
+//
+// // todo.title = "Hello";
+// console.log(todo)
 
 interface CatInfo {
   age: number;
@@ -53,3 +53,18 @@ const cats: Record<CatName, CatInfo> = {
 };
 
 console.log(cats.boris);
+
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type TodoPreview = Pick<Todo, "title" | "completed">;
+
+const todo: TodoPreview = {
+  title: "Clean room",
+  completed: false,
+};
+
+console.log(todo)

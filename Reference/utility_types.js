@@ -19,14 +19,14 @@
 // console.log(todo1);
 // console.log(todo2);
 var obj = { a: 5 };
-var todo = {
-    title: "Delete inactive users"
-};
-// todo.title = "Hello";
-console.log(todo);
 var cats = {
     miffy: { age: 10, breed: "Persian" },
     boris: { age: 5, breed: "Maine Coon" },
     mordred: { age: 16, breed: "British Shorthair" }
 };
 console.log(cats.boris);
+var todo = {
+    title: "Clean room",
+    completed: false
+};
+console.log(todo);
