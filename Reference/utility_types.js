@@ -27,6 +27,7 @@ var cats = {
 console.log(cats.boris);
 var todo = {
     title: "Clean room",
-    completed: false
+    completed: false,
+    createdAt: 1615544252770
 };
 console.log(todo);
