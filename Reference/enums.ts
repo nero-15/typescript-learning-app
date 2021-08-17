@@ -5,14 +5,14 @@
 //   Right,
 //}
 
-enum Direction {
-  Up = "UP",
-  Down = "DOWN",
-  Left = "LEFT",
-  Right = "RIGHT",
-}
-
-console.log(Direction);
+// enum Direction {
+//   Up = "UP",
+//   Down = "DOWN",
+//   Left = "LEFT",
+//   Right = "RIGHT",
+// }
+//
+// console.log(Direction);
 
 enum BooleanLikeHeterogeneousEnum {
   No = 0,
@@ -56,3 +56,19 @@ function printImportant(key: LogLevelStrings, message: string) {
   }
 }
 printImportant("ERROR", "This is a message");
+
+const enum Direction {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+
+let directions = [
+  Direction.Up,
+  Direction.Down,
+  Direction.Left,
+  Direction.Right,
+];
+
+console.log(directions);

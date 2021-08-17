@@ -4,14 +4,14 @@
 //   Left,
 //   Right,
 //}
-var Direction;
-(function (Direction) {
-    Direction["Up"] = "UP";
-    Direction["Down"] = "DOWN";
-    Direction["Left"] = "LEFT";
-    Direction["Right"] = "RIGHT";
-})(Direction || (Direction = {}));
-console.log(Direction);
+// enum Direction {
+//   Up = "UP",
+//   Down = "DOWN",
+//   Left = "LEFT",
+//   Right = "RIGHT",
+// }
+//
+// console.log(Direction);
 var BooleanLikeHeterogeneousEnum;
 (function (BooleanLikeHeterogeneousEnum) {
     BooleanLikeHeterogeneousEnum[BooleanLikeHeterogeneousEnum["No"] = 0] = "No";
@@ -48,3 +48,10 @@ function printImportant(key, message) {
     }
 }
 printImportant("ERROR", "This is a message");
+var directions = [
+    0 /* Up */,
+    1 /* Down */,
+    2 /* Left */,
+    3 /* Right */,
+];
+console.log(directions);
