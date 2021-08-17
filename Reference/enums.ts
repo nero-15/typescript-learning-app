@@ -13,3 +13,9 @@ enum Direction {
 }
 
 console.log(Direction);
+
+enum BooleanLikeHeterogeneousEnum {
+  No = 0,
+  Yes = "YES",
+}
+console.log(BooleanLikeHeterogeneousEnum);
