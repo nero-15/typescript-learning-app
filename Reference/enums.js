@@ -1,8 +1,14 @@
+// enum Direction {
+//   Up = 1,
+//   Down,
+//   Left,
+//   Right,
+//}
 var Direction;
 (function (Direction) {
-    Direction[Direction["Up"] = 1] = "Up";
-    Direction[Direction["Down"] = 2] = "Down";
-    Direction[Direction["Left"] = 3] = "Left";
-    Direction[Direction["Right"] = 4] = "Right";
+    Direction["Up"] = "UP";
+    Direction["Down"] = "DOWN";
+    Direction["Left"] = "LEFT";
+    Direction["Right"] = "RIGHT";
 })(Direction || (Direction = {}));
 console.log(Direction);
