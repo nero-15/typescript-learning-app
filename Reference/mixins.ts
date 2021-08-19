@@ -11,7 +11,7 @@ class Sprite {
 // To get started, we need a type which we'll use to extend
 // other classes from. The main responsibility is to declare
 // that the type being passed in is a class.
-type Constructor = new (...args: any[]) => {};
+// type Constructor = new (...args: any[]) => {};
 
 // This mixin adds a scale property, with getters and setters
 // for changing it with an encapsulated private property:
@@ -39,3 +39,24 @@ const EightBitSprite = Scale(Sprite);
 const flappySprite = new EightBitSprite("Bird");
 flappySprite.setScale(0.8);
 console.log(flappySprite.scale);
+
+// This was our previous constructor:
+type Constructor = new (...args: any[]) => {};
+// Now we use a generic version which can apply a constraint on
+// the class which this mixin is applied to
+type GConstructor<T = {}> = new (...args: any[]) => T;
+
+type Positionable = GConstructor<{ setPos: (x: number, y: number) => void }>;
+type Spritable = GConstructor<Sprite>;
+type Loggable = GConstructor<{ print: () => void }>;
+
+function Jumpable<TBase extends Positionable>(Base: TBase) {
+  return class Jumpable extends Base {
+    jump() {
+      // This mixin will only work if it is passed a base
+      // class which has setPos defined because of the
+      // Positionable constraint.
+      this.setPos(0, 20);
+    }
+  };
+}
