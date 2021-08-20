@@ -1,9 +1,8 @@
 interface Pet {
   name: string;
 }
-class Dog {
-  name: string;
+let dog = { name: "Lassie", owner: "Rudd Weatherwax" };
+function greet(pet: Pet) {
+  console.log("Hello, " + pet.name);
 }
-let pet: Pet;
-// OK, because of structural typing
-pet = new Dog();
+greet(dog); // OK
